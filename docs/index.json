@@ -1,0 +1,61 @@
+{
+  "editions": [
+    {
+      "id": "01M1D391TBQ2ZZD55N8HRVVB2N",
+      "slug": "2026-09-02",
+      "title": "The Amuse-Bouche: Flavor Savors",
+      "date": "2026-09-02",
+      "preview": "Bhindi Masala & Burgers & Beer",
+      "path": "editions/2026-09-02.html"
+    },
+    {
+      "id": "01M0AZ80W41Y58XBE3EYCEVVW4",
+      "slug": "2026-08-26",
+      "title": "The Amuse-Bouche:",
+      "date": "2026-08-26",
+      "preview": "the LEFTOVERS 👩🚒 When the sirens came — and kept coming — right outside our Arts District office, we feared something terrible was happening. Sadly, just blocks away, a fire…",
+      "path": "editions/2026-08-26.html"
+    },
+    {
+      "id": "01KZVF00Y17FV2ZDP0JY8ZG5KR",
+      "slug": "2026-08-19",
+      "title": "The Amuse-Bouche: Coffee, Cocktails & Wine",
+      "date": "2026-08-19",
+      "preview": "Three of Our Favorite Things",
+      "path": "editions/2026-08-19.html"
+    },
+    {
+      "id": "01KZ6YJV2ZE5HXKFZN7MFP72GM",
+      "slug": "2026-08-12",
+      "title": "The Amuse-Bouche: Salad & Go(ne), R&G Lounge Coming",
+      "date": "2026-08-12",
+      "preview": "Las Vegas Food News, Gossip & Events",
+      "path": "editions/2026-08-12.html"
+    },
+    {
+      "id": "01KYQ6M0PYE12WSSR9GHB0MPWB",
+      "slug": "2026-08-05",
+      "title": "The Amuse-Bouche: 🍹 New Cocktails & Openings Await!",
+      "date": "2026-08-05",
+      "preview": "the LEFTOVERS 🇯🇵 A couple weeks back, we teased a new concept taking over the bar at the Arts District location of Houston Hot Chicken . It launches tonight at 5pm with the…",
+      "path": "editions/2026-08-05.html"
+    },
+    {
+      "id": "01KYQ45VSB2AQ1JE2C706Z0M4E",
+      "slug": "2026-07-29",
+      "title": "The Amuse-Bouche: Openings, Closings & a New (York) Deli",
+      "date": "2026-07-29",
+      "preview": "A brewery closes, a tavern opens.",
+      "path": "editions/2026-07-29.html"
+    },
+    {
+      "id": "01KXGR1BZBJ7GSKFNRTMABPSZ3",
+      "slug": "2026-07-22",
+      "title": "The Amuse-Bouche: A Buffet of News & Updates",
+      "date": "2026-07-22",
+      "preview": "This was not a slow week…",
+      "path": "editions/2026-07-22.html"
+    }
+  ],
+  "updated": "2026-09-21T21:12:29+00:00"
+}
