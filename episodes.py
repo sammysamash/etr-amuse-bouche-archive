@@ -2,15 +2,16 @@
 """
 Eat Talk Repeat - YouTube episodes list builder.
 
-Reads the channel's public YouTube feed (no API key needed), skips Shorts,
-keeps videos published on or after START_DATE, and writes
+Reads the channel's videos from YouTube, skips Shorts, keeps videos published
+on or after START_DATE, and writes
 
     docs/episodes.json   list of episodes, newest first
 
 which the Code block on the website's Episodes page reads.
 
-Episodes already in episodes.json are kept, so the list keeps growing even
-though YouTube's feed only shows the most recent 15 videos. You can edit the
+With YT_API_KEY set it uses the YouTube Data API and can reach every video on
+the channel. Without it, it uses YouTube's public feed, which only shows the
+most recent 15 videos. Episodes already in episodes.json are kept either way. You can edit the
 "caption" of any episode in episodes.json on GitHub and it will not be
 overwritten.
 
@@ -18,6 +19,7 @@ Environment variables:
     YT_CHANNEL        (required) channel link, @handle or channel ID (UC...)
     START_DATE        (default 2026-09-18) ignore videos published before this
     TITLE_STYLE       "short" (default) or "full"
+    YT_API_KEY        (optional) YouTube Data API v3 key, for the full back catalog
 """
 import html as htmllib
 import json
@@ -25,6 +27,7 @@ import re
 import sys
 import time
 import urllib.error
+import urllib.parse
 import urllib.request
 import xml.etree.ElementTree as ET
 from datetime import date, datetime
@@ -35,6 +38,8 @@ import os
 CHANNEL = os.environ.get("YT_CHANNEL", "").strip()
 START_DATE = date.fromisoformat(os.environ.get("START_DATE", "").strip() or "2026-09-18")
 TITLE_STYLE = (os.environ.get("TITLE_STYLE", "").strip() or "short").lower()
+API_KEY = os.environ.get("YT_API_KEY", "").strip()
+SHORTS_MAX_SECONDS = 180   # YouTube Shorts are 3 minutes or less
 LOCAL = ZoneInfo("America/Los_Angeles")
 
 OUT = Path(__file__).parent / "docs" / "episodes.json"
@@ -109,12 +114,78 @@ def short_title(title):
     return head if len(m) > 1 and len(head.split()) >= 3 else t
 
 
-def main():
-    cid = channel_id()
+def feed_videos(cid):
+    """Most recent 15 videos from the public feed: (id, title, published, is_short or None)."""
     status, xml = fetch(f"https://www.youtube.com/feeds/videos.xml?channel_id={cid}")
     if status != 200:
         sys.exit(f"YouTube feed returned HTTP {status} for channel {cid}.")
-    root = ET.fromstring(xml)
+    for entry in ET.fromstring(xml).findall("a:entry", NS):
+        link_el = entry.find("a:link", NS)
+        link = link_el.get("href") if link_el is not None else ""
+        yield (entry.findtext("yt:videoId", namespaces=NS),
+               htmllib.unescape(entry.findtext("a:title", default="", namespaces=NS)).strip(),
+               datetime.fromisoformat(entry.findtext("a:published", namespaces=NS)),
+               True if "/shorts/" in link else None)
+
+
+def api_get(path, **params):
+    params["key"] = API_KEY
+    url = "https://www.googleapis.com/youtube/v3/" + path + "?" + urllib.parse.urlencode(params)
+    try:
+        with urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=30) as r:
+            return json.load(r)
+    except urllib.error.HTTPError as e:
+        detail = e.read().decode("utf-8", "replace")[:400]
+        sys.exit(f"YouTube API error {e.code}. Check the YT_API_KEY secret and that "
+                 f"'YouTube Data API v3' is enabled for it.\n{detail}")
+
+
+def seconds(iso):
+    m = re.fullmatch(r"P(?:(\d+)D)?T?(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?", iso or "")
+    if not m:
+        return 0
+    d, h, mi, s = (int(x or 0) for x in m.groups())
+    return ((d * 24 + h) * 60 + mi) * 60 + s
+
+
+def api_videos(cid):
+    """Every public upload since START_DATE, via the YouTube Data API."""
+    uploads = "UU" + cid[2:]
+    ids, token = [], None
+    while True:
+        params = {"part": "contentDetails", "playlistId": uploads, "maxResults": 50}
+        if token:
+            params["pageToken"] = token
+        page = api_get("playlistItems", **params)
+        stop = False
+        for item in page.get("items", []):
+            cd = item.get("contentDetails", {})
+            when = cd.get("videoPublishedAt")
+            if not when:
+                continue
+            if datetime.fromisoformat(when.replace("Z", "+00:00")).astimezone(LOCAL).date() < START_DATE:
+                stop = True          # uploads are newest first, so everything after is older
+                continue
+            ids.append(cd["videoId"])
+        token = page.get("nextPageToken")
+        if stop or not token:
+            break
+    for i in range(0, len(ids), 50):
+        page = api_get("videos", part="snippet,contentDetails,status", id=",".join(ids[i:i + 50]))
+        for v in page.get("items", []):
+            sn = v.get("snippet", {})
+            if sn.get("liveBroadcastContent") in ("upcoming", "live"):
+                continue
+            if v.get("status", {}).get("privacyStatus") != "public":
+                continue
+            yield (v["id"], sn.get("title", "").strip(),
+                   datetime.fromisoformat(sn["publishedAt"].replace("Z", "+00:00")),
+                   seconds(v.get("contentDetails", {}).get("duration")) <= SHORTS_MAX_SECONDS)
+
+
+def main():
+    cid = channel_id()
+    source = api_videos(cid) if API_KEY else feed_videos(cid)
 
     existing = {}
     if OUT.exists():
@@ -123,19 +194,14 @@ def main():
     episodes = dict(existing)
     added, skipped_shorts = [], []
 
-    for entry in root.findall("a:entry", NS):
-        vid = entry.findtext("yt:videoId", namespaces=NS)
-        title = htmllib.unescape(entry.findtext("a:title", default="", namespaces=NS)).strip()
-        link_el = entry.find("a:link", NS)
-        link = link_el.get("href") if link_el is not None else ""
-        published = datetime.fromisoformat(entry.findtext("a:published", namespaces=NS))
+    for vid, title, published, short in source:
         day = published.astimezone(LOCAL).date()
         if not vid or day < START_DATE:
             continue
         if vid in episodes:
             episodes[vid]["title"] = title          # pick up title edits made on YouTube
             continue
-        if is_short(vid, link):
+        if short if short is not None else is_short(vid, ""):
             skipped_shorts.append(title)
             continue
         episodes[vid] = {"id": vid, "date": day.isoformat(), "title": title,
@@ -151,6 +217,7 @@ def main():
         OUT.write_text(json.dumps(body, indent=2, ensure_ascii=False), encoding="utf-8")
     (OUT.parent / ".nojekyll").touch()
 
+    print(f"Source: {'YouTube API (full catalog)' if API_KEY else 'public feed (latest 15 videos)'}")
     print(f"Channel {cid}  |  episodes on the page: {len(ordered)}  |  newly added: {len(added)}")
     for a in added:
         print(f"  + {a}")
