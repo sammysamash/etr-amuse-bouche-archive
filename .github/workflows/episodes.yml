@@ -23,6 +23,7 @@ jobs:
       - name: Build episodes list
         env:
           YT_CHANNEL: ${{ vars.YT_CHANNEL }}
+          YT_API_KEY: ${{ secrets.YT_API_KEY }}
           START_DATE: ${{ vars.EPISODES_START_DATE }}
           TITLE_STYLE: ${{ vars.TITLE_STYLE }}
         run: python episodes.py
