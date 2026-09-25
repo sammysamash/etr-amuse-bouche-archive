@@ -1,6 +1,14 @@
 {
   "editions": [
     {
+      "id": "01M1F47D9KCBAT5S2AN3HPSF9Q",
+      "slug": "2026-09-09",
+      "title": "The Amuse-Bouche: New Eats in Chinatown, Summerlin & Downtown",
+      "date": "2026-09-09",
+      "preview": "the LEFTOVERS 🇫🇷 Chinatown continues to assert itself as Las Vegas's premiere dining neighborhood . Now comes Lilli , the former pop-up from chef Tyler Vorce , which opens in a…",
+      "path": "editions/2026-09-09.html"
+    },
+    {
       "id": "01M1D391TBQ2ZZD55N8HRVVB2N",
       "slug": "2026-09-02",
       "title": "The Amuse-Bouche: Flavor Savors",
@@ -57,5 +65,5 @@
       "path": "editions/2026-07-22.html"
     }
   ],
-  "updated": "2026-09-21T21:12:29+00:00"
+  "updated": "2026-09-25T14:28:17+00:00"
 }
