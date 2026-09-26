@@ -1,6 +1,12 @@
 {
   "episodes": [
     {
+      "id": "gOs9TtkvHCs",
+      "date": "2026-09-25",
+      "title": "Vegas on the Rocks: James Reza Tells All (FBF)",
+      "caption": "Vegas on the Rocks"
+    },
+    {
       "id": "211E0GJ6TtE",
       "date": "2026-09-18",
       "title": "The Wine Decline: Vegas Wine Experts Tell All",
@@ -247,5 +253,5 @@
       "caption": "Food Trends That Need To Die in 2026"
     }
   ],
-  "updated": "2026-09-22T10:13:40-07:00"
+  "updated": "2026-09-25T18:19:31-07:00"
 }
