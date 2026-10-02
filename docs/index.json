@@ -1,6 +1,14 @@
 {
   "editions": [
     {
+      "id": "01M23WBN27J2K5HA7SY5XZ7JQ4",
+      "slug": "2026-09-16",
+      "title": "The Amuse-Bouche: Coffee, Cocktails, Croissants & Closures",
+      "date": "2026-09-16",
+      "preview": "the LEFTOVERS 🛫 With the October opening of Significant Other Kitchen & Cocktails , the Airport District (we just made that up) will get its second posh restaurant — about 24…",
+      "path": "editions/2026-09-16.html"
+    },
+    {
       "id": "01M1F47D9KCBAT5S2AN3HPSF9Q",
       "slug": "2026-09-09",
       "title": "The Amuse-Bouche: New Eats in Chinatown, Summerlin & Downtown",
@@ -65,5 +73,5 @@
       "path": "editions/2026-07-22.html"
     }
   ],
-  "updated": "2026-09-25T14:28:17+00:00"
+  "updated": "2026-10-02T14:31:32+00:00"
 }
