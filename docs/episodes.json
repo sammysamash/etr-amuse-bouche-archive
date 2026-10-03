@@ -1,6 +1,12 @@
 {
   "episodes": [
     {
+      "id": "cYQMXf6t2VE",
+      "date": "2026-10-02",
+      "title": "The Worst Burger of the Year?",
+      "caption": "The Worst Burger of the Year?"
+    },
+    {
       "id": "gOs9TtkvHCs",
       "date": "2026-09-25",
       "title": "Vegas on the Rocks: James Reza Tells All (FBF)",
@@ -253,5 +259,5 @@
       "caption": "Food Trends That Need To Die in 2026"
     }
   ],
-  "updated": "2026-09-25T18:19:31-07:00"
+  "updated": "2026-10-02T18:21:37-07:00"
 }
