@@ -1,6 +1,12 @@
 {
   "episodes": [
     {
+      "id": "fGhf_hsovgk",
+      "date": "2026-10-09",
+      "title": "Drink. Talk. Repeat. | THE Las Vegas Bar List",
+      "caption": "Drink. Talk. Repeat."
+    },
+    {
       "id": "cYQMXf6t2VE",
       "date": "2026-10-02",
       "title": "The Worst Burger of the Year?",
@@ -259,5 +265,5 @@
       "caption": "Food Trends That Need To Die in 2026"
     }
   ],
-  "updated": "2026-10-02T18:21:37-07:00"
+  "updated": "2026-10-09T18:24:00-07:00"
 }
