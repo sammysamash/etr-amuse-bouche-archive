@@ -1,6 +1,12 @@
 {
   "episodes": [
     {
+      "id": "GvOdMwj7eGQ",
+      "date": "2026-10-16",
+      "title": "Is This the Worst Steak Dinner in Las Vegas?",
+      "caption": "Is This the Worst Steak Dinner in Las Vegas?"
+    },
+    {
       "id": "fGhf_hsovgk",
       "date": "2026-10-09",
       "title": "Drink. Talk. Repeat. | THE Las Vegas Bar List",
@@ -265,5 +271,5 @@
       "caption": "Food Trends That Need To Die in 2026"
     }
   ],
-  "updated": "2026-10-09T18:24:00-07:00"
+  "updated": "2026-10-16T18:33:26-07:00"
 }
