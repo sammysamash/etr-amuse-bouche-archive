@@ -1,6 +1,12 @@
 {
   "episodes": [
     {
+      "id": "qz-7E-erIwI",
+      "date": "2026-10-23",
+      "title": "Your Dining Pet Peeves",
+      "caption": "Your Dining Pet Peeves"
+    },
+    {
       "id": "GvOdMwj7eGQ",
       "date": "2026-10-16",
       "title": "Is This the Worst Steak Dinner in Las Vegas?",
@@ -271,5 +277,5 @@
       "caption": "Food Trends That Need To Die in 2026"
     }
   ],
-  "updated": "2026-10-16T18:33:26-07:00"
+  "updated": "2026-10-23T18:43:50-07:00"
 }
