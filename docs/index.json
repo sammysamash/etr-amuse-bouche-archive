@@ -1,6 +1,14 @@
 {
   "editions": [
     {
+      "id": "01M49DR63SN892BEF5MKT0MM3K",
+      "slug": "2026-10-14",
+      "title": "The Amuse-Bouche: Global Cuisine + Buffet Revival?",
+      "date": "2026-10-14",
+      "preview": "Can the Vegas dining scene move forward by looking backward?",
+      "path": "editions/2026-10-14.html"
+    },
+    {
       "id": "01M3SK435GDHJVEG10JX1CSJ0S",
       "slug": "2026-10-07",
       "title": "The Amuse-Bouche: Two Mexican Spots Say Adios, Durango Cleans House",
@@ -297,5 +305,5 @@
       "path": "editions/2026-01-28.html"
     }
   ],
-  "updated": "2026-10-23T14:48:35+00:00"
+  "updated": "2026-10-30T19:20:38+00:00"
 }
