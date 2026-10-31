@@ -1,6 +1,12 @@
 {
   "episodes": [
     {
+      "id": "e4-ObOyaNkM",
+      "date": "2026-10-30",
+      "title": "Oh look... another (not so) sh!tty restaurant list!",
+      "caption": "Oh look... another (not so) sh!tty restaurant list!"
+    },
+    {
       "id": "qz-7E-erIwI",
       "date": "2026-10-23",
       "title": "Your Dining Pet Peeves",
@@ -277,5 +283,5 @@
       "caption": "Food Trends That Need To Die in 2026"
     }
   ],
-  "updated": "2026-10-23T18:43:50-07:00"
+  "updated": "2026-10-30T23:55:56-07:00"
 }
