@@ -1,6 +1,14 @@
 {
   "editions": [
     {
+      "id": "01M5DTM0XJWQVYACV0KESXX98C",
+      "slug": "2026-10-21",
+      "title": "The Amuse-Bouche: Breakfasts, Brunches, & Boulder City",
+      "date": "2026-10-21",
+      "preview": "Breakfast Specials and Special Brunches… Plus More AYCE!",
+      "path": "editions/2026-10-21.html"
+    },
+    {
       "id": "01M49DR63SN892BEF5MKT0MM3K",
       "slug": "2026-10-14",
       "title": "The Amuse-Bouche: Global Cuisine + Buffet Revival?",
@@ -305,5 +313,5 @@
       "path": "editions/2026-01-28.html"
     }
   ],
-  "updated": "2026-10-30T19:20:38+00:00"
+  "updated": "2026-11-06T20:26:41+00:00"
 }
