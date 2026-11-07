@@ -1,6 +1,12 @@
 {
   "episodes": [
     {
+      "id": "eK4StEvUFds",
+      "date": "2026-11-06",
+      "title": "The Las Vegas Pizza Legends",
+      "caption": "The Las Vegas Pizza Legends"
+    },
+    {
       "id": "e4-ObOyaNkM",
       "date": "2026-10-30",
       "title": "Oh look... another (not so) sh!tty restaurant list!",
@@ -283,5 +289,5 @@
       "caption": "Food Trends That Need To Die in 2026"
     }
   ],
-  "updated": "2026-10-30T23:55:56-07:00"
+  "updated": "2026-11-06T23:01:58-08:00"
 }
