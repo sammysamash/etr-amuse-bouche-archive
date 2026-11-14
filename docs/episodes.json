@@ -1,6 +1,12 @@
 {
   "episodes": [
     {
+      "id": "FdWTkn2C-dk",
+      "date": "2026-11-13",
+      "title": "Is Las Vegas Getting Italian Food Wrong? Two Legendary Chefs Weigh In",
+      "caption": "Is Las Vegas Getting Italian Food Wrong? Two Legendary Chefs Weigh In"
+    },
+    {
       "id": "eK4StEvUFds",
       "date": "2026-11-06",
       "title": "The Las Vegas Pizza Legends",
@@ -289,5 +295,5 @@
       "caption": "Food Trends That Need To Die in 2026"
     }
   ],
-  "updated": "2026-11-06T23:01:58-08:00"
+  "updated": "2026-11-13T23:33:04-08:00"
 }
