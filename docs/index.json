@@ -1,6 +1,14 @@
 {
   "editions": [
     {
+      "id": "01M5ZSCV5PHK1V24F0WCSRYM59",
+      "slug": "2026-11-04",
+      "title": "The Amuse-Bouche: Beer Bars (+ Spas), Buckle Bars & Bagels",
+      "date": "2026-11-04",
+      "preview": "Throw some jazz hands for this week's lineup!",
+      "path": "editions/2026-11-04.html"
+    },
+    {
       "id": "01M5DQQ7V4CH7QR5XF5J8N9FDB",
       "slug": "2026-10-28",
       "title": "The Amuse-Bouche: Tacos, Steaks… & Drama?",
@@ -321,5 +329,5 @@
       "path": "editions/2026-01-28.html"
     }
   ],
-  "updated": "2026-11-13T20:53:48+00:00"
+  "updated": "2026-11-20T21:48:34+00:00"
 }
