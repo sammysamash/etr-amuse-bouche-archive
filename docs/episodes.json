@@ -1,6 +1,12 @@
 {
   "episodes": [
     {
+      "id": "5OHAfhRlleU",
+      "date": "2026-11-20",
+      "title": "Eat. Talk. Give Thanks. Repeat.",
+      "caption": "Eat. Talk. Give Thanks. Repeat."
+    },
+    {
       "id": "FdWTkn2C-dk",
       "date": "2026-11-13",
       "title": "Is Las Vegas Getting Italian Food Wrong? Two Legendary Chefs Weigh In",
@@ -295,5 +301,5 @@
       "caption": "Food Trends That Need To Die in 2026"
     }
   ],
-  "updated": "2026-11-13T23:33:04-08:00"
+  "updated": "2026-11-21T00:13:36-08:00"
 }
